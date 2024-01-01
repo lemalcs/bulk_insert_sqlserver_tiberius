@@ -1,0 +1,22 @@
+[package]
+name = "tiberius_bulk_insert_sqlserver"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[features]
+use_tds73 = ["tiberius/tds73"] # enable TDS 7.3
+use_tds72 = [] # enable TDS 7.2
+
+[dependencies]
+async-std = { version = "1.10.0", features = ["attributes"] }
+once_cell = "1.17.1"
+anyhow = "1.0.0"
+futures-util = "0.3"
+chrono = "0.4.26"
+
+[dependencies.tiberius]
+version = "0.12.2" # The version number may change in the future
+features = ["bigdecimal", "chrono", "rust_decimal"]
+default-features = false  # Disable default features of Tiberius
